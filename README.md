@@ -59,3 +59,49 @@ This project is currently **work in progress** and is being actively developed.
 
 ## 📂 Project Structure
 
+solar-project/
+│
+├── frontend/
+│ ├── src/
+│ ├── public/
+│ └── vite.config.js
+│
+├── backend/ (to be added)
+└── README.md
+
+
+---
+
+## 🎯 Purpose of the Project
+
+This is not a demo project.
+
+It is being built for a **real registered solar business** to:
+- Improve customer engagement
+- Reduce manual inquiry handling
+- Provide transparent solar cost estimates
+- Support bilingual users for wider reach
+
+---
+
+## 📌 Status
+🟡 **In Progress**
+
+- Backend APIs
+- OTP verification
+- Admin dashboard
+- Database design
+- Styling & UI polish
+
+---
+
+## 👩‍💻 Developer
+
+**Gouri Gupta**  
+Full Stack Developer (MERN)  
+DSA-focused | Building real-world products  
+
+---
+
+## 📬 Feedback
+Feedback and suggestions are welcome.
