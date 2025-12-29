@@ -59,15 +59,16 @@ This project is currently **work in progress** and is being actively developed.
 
 ## 📂 Project Structure
 
+```text
 solar-project/
-│
 ├── frontend/
-│ ├── src/
-│ ├── public/
-│ └── vite.config.js
+│   ├── public/
+│   ├── src/
+│   └── vite.config.js
 │
-├── backend/ (to be added)
+├── backend/        (to be added)
 └── README.md
+
 
 
 ---
