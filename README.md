@@ -68,10 +68,8 @@ solar-project/
 │
 ├── backend/        (to be added)
 └── README.md
+```
 
-
-
----
 
 ## 🎯 Purpose of the Project
 
