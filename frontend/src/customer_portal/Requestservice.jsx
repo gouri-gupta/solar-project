@@ -78,6 +78,9 @@ const Requestservice = () => {
                 <div>
                     {error.phone && <span>{error.phone}</span>}
                 </div><br /><br />
+                
+                <label htmlFor="">OTP </label>
+                <input type="text" name='otp' value={otp} onChange={handleChange}/> <br /><br />
 
                 <label htmlFor="">{t("customerPortal.requestService.serviceType")} </label>
                 <select name="serviceType" id="" onChange={handleChange}>
@@ -92,8 +95,6 @@ const Requestservice = () => {
                     <option value="commercial">{t("customerPortal.requestService.property.commercial")}</option>
                 </select><br /><br />
 
-                <label htmlFor="">OTP </label>
-                <input type="text" name='otp' value={otp} onChange={handleChange}/> <br /><br />
 
                 <button type='submit'>{t("customerPortal.requestService.submit")}</button>
            </form>

@@ -1,0 +1,233 @@
+[
+    {
+        "customerName":"DNYANESHWAR MAHADEORAO GANDHE",
+        "phone":"9325363382",
+        "email":"rajgandhe97@gmail.com",
+        "address":"H.NO.1143 GURUDEV NAGAR, District: Amravati, State: MAHARASHTRA, PIN Code: 444902",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":3.6,
+        "installationDate":"2025-11-17",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1771852146/img17_j0cieh.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"VIMLABAI CHANDULALJI GUPTA",
+        "phone":"8668231032",
+        "address":"HANUMAN MANDIR NR SAHAKARI WELL KALYAN NAGAR AMRAVATI, District: Amravati, State: MAHARASHTRA, PIN Code: 444606",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":3.5,
+        "installationDate":"2025-11-16",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1771855063/img17_ulc2im.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"VIKRAM CHANDRAKANT JOSHI",
+        "phone":"9421019628",
+        "email":"vikramjoshi12300@gmail.com",
+        "address":"TIOSA  TIOSA, District: Amravati, State: MAHARASHTRA, PIN Code: 444903",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":3.5,
+        "installationDate":"2025-11-13",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1771855406/img17_jmierq.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"SHRI GAJANAN MAHADEORAO HARNE",
+        "phone":"8888518511",
+        "email":"sumitharne76@gmail.com",
+        "address":"H NO 397 TIWASA MOZARI, District: Amravati, State: MAHARASHTRA, PIN Code: 444701",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":3.5,
+        "installationDate":"2025-11-11",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1771926997/img17_ipbndd.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+    },
+    {
+        "customerName":"SMT JAISHRI RAMBHAU GULHANE",
+        "phone":"7769822780",
+        "email":"jayagulhane1234@gmail.com",
+        "address":"DAPORI  DAPORI, District: Amravati, State: MAHARASHTRA, PIN Code: 444707",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":3.5,
+        "installationDate":"2025-11-10",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1771929392/img17_rwealu.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"SHRI ASHOK MAHADEOROA RAUT",
+        "phone":"9970335632",
+        "address":"GADGE NAGAR AMT NEAR CHANDRAKANT BA HUS AMRAVATI, District: Amravati, State: MAHARASHTRA, PIN Code: 444604",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":4.5,
+        "installationDate":"2025-11-5",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1772111927/img17_geda0v.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    }
+]
