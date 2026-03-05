@@ -235,7 +235,8 @@
   },
   "wallOfTrust": "Wall of Trust",
   "wotPage": {
-    "subtitle": "Real projects. Real customers. Real impact."
+    "subtitle": "Real projects. Real customers. Real impact.",
+    "privacyNote": "For privacy and security reasons, project addresses and GPS details have been blurred."
   },
   "tagline": "Powering Homes with Clean Solar Energy",
   "whySolar": "Why Choose Solar?"

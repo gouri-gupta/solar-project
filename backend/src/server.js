@@ -7,6 +7,8 @@ import adminRoute from "./routes/adminRoute.js"
 import requestServiceRoute from "./routes/requestServiceRoute.js"
 import siteVisitRoute from "./routes/siteVisitRoute.js"
 import calculatorRoute from "./routes/calculatorRoute.js"
+import cors from "cors"
+import otpRoute from "./routes/otpRoute.js"
 
 dotenv.config();
 
@@ -21,6 +23,12 @@ connectDB();
 // This allows you to organize routes into separate files and keep your main application file clean.
 app.use(express.json());
 
+//CORS
+app.use(cors({
+  origin: "http://localhost:5173", // for now; later you can restrict to your frontend domain
+  credentials: false
+}));
+
 
 //routes
 app.get("/",(request,response)=>{
@@ -34,6 +42,7 @@ app.use("/api/admin",adminRoute)
 app.use("/api/calculator",calculatorRoute)
 app.use("/api/request-services",requestServiceRoute)
 app.use("/api/site-visits",siteVisitRoute)
+app.use("/api/otp",otpRoute)
 
 //app.use path + router path
 

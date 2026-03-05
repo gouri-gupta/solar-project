@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AdminContext } from '../context/AdminAuthContext';
+import axios from 'axios'
 
 
 const Login = () => {
@@ -10,7 +11,7 @@ const Login = () => {
 
     let d=useContext(AdminContext)
     console.log(d)
-    let {admin,isLogged,loginAdmin,logoutAdmin}=d
+    let {isLogged,loginAdmin,logoutAdmin}=d
 
     let navigate=useNavigate()
     
@@ -20,6 +21,31 @@ const Login = () => {
         })  
 
     let {email,password}=curradmin
+
+    async function sendData(obj){
+        try {
+            const k=await axios.post("http://localhost:5000/api/admin/login",obj)
+            let {data}=k;
+            if(data.success){
+                //logged in successfully
+                loginAdmin()
+                //store token in local storage
+                localStorage.setItem("token",data.token)
+                //toast message
+                toast.success("Logged in successfully")
+                //navigate to home page
+                navigate("/admindashboard")
+            }
+            else{
+                toast.error("Invalid Login credentials")
+            }
+        } 
+        catch (error) {
+            //console.log(error)
+            console.log(error.message)
+            toast.error("Invalid Login credentials")
+        }
+    }
     
 
     const handleChange=(e)=>{
@@ -33,7 +59,11 @@ const Login = () => {
          e.preventDefault()
         //on click of log in button whether admin exists in the admin database or not 
         //for now dummy data only
-        if(email=="girish" && password=="2208"){
+
+        let newObj={e:email,p:password}
+        sendData(newObj)
+        
+        /*if(email=="girish" && password=="2208"){
             loginAdmin(curradmin)
             navigate("/")
             toast.success("Logged in successfully")
@@ -41,7 +71,7 @@ const Login = () => {
         else{
             showErrorMsg(true)
             toast.error("Invalid Login credentials")
-        }
+        }*/
     }
 
 

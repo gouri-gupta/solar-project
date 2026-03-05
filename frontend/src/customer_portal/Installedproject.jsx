@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast';
+import axios from 'axios'
 
 const Installedproject = () => {
 
@@ -21,6 +22,29 @@ const Installedproject = () => {
     }
     
     const [error,setError]=useState({})
+
+    async function sendData(obj){
+        try {
+            let obj_to_send={name:obj.name,phone:obj.phone,queryType:obj.queryType,description:obj.message}
+            let responseData=await axios.post("http://localhost:5000/api/customer-queries",obj_to_send)
+            console.log(responseData)
+            if(responseData.status==201){
+                toast.success("Query submitted successfully")
+                return;
+            }
+        } 
+        catch (error) {
+            //console.log(error)
+            console.log(error.message)
+            if(error.status==404){
+                toast.error("Customer not found!")
+            }
+            else{
+                toast.error("Something went wrong")
+            }
+            return;
+        }
+    }
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -55,7 +79,8 @@ const Installedproject = () => {
             //means all info is entered correctly 
             //we will send the query to the server so that it gets stored in database and admin can see it later
             //for now since backend is not there we will simply give a toast message
-            toast.success("Query Submitted Successfully")
+            let obj=currInfo;
+            sendData(obj)
         }
         else{
             toast.error("Query Submission failed! Check your inputs and try again.")

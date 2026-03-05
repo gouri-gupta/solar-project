@@ -31,7 +31,7 @@ const Navbar = () => {
             <li>
                 {
                     isLogged ? (
-                        <NavLink to="#">Admin Dashboard</NavLink>
+                        <NavLink to="/admindashboard">Admin Dashboard</NavLink>
                     ) :
                     (
                         <NavLink to="/contact">{t("contact")}</NavLink>

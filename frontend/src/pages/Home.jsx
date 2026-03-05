@@ -16,7 +16,7 @@ Old Co on Market Road,
 Amrava . 444 601*/}
 
             {/*Hero section */}
-            <h1>{t("home.hero.welcome")}</h1>
+            <h1 className='text-green-500'>{t("home.hero.welcome")}</h1>
             <h1>{t("home.hero.tagline")}</h1>
 
             {/*Why solar */}

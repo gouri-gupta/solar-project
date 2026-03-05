@@ -6,7 +6,7 @@ import ProjectModel from "../models/Project.js";
 //Admin only
 export const getProjects=async (request,response)=>{
     try{
-        const projectData=await ProjectModel.find()
+        const projectData=await ProjectModel.find().sort({installationDate:-1})
         //Sort the projects according to Installation date as Admin usually wants to see latest projects first
         response.status(200).send(projectData);
     }
@@ -20,7 +20,7 @@ export const getProjects=async (request,response)=>{
 //public route
 export const getPublicProjects=async (request,response)=>{
     try{
-        const d=await ProjectModel.find({},{images:1,installationDate:1,installedCapacityKW:1,propertyType:1,serviceType:1,_id:1})
+        const d=await ProjectModel.find({},{images:1,installationDate:1,installedCapacityKW:1,propertyType:1,serviceType:1,_id:1}).sort({installationDate:-1}).exec()
          //Sort the projects according to Installation date as public usually wants to see latest projects first
         //console.log(d);
         response.status(200).send(d)

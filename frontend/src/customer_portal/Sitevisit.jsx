@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast';
+import axios from 'axios'
 
 const Sitevisit = () => {
     const { t, i18n } = useTranslation();
@@ -8,10 +9,29 @@ const Sitevisit = () => {
     const [currInfo,setInfo]=useState({
         name:"",
         phone:"",
-        address:""
+        address:"",
+        otp:""
     })
 
-    let {name,phone,address}=currInfo
+    let [otpSent,setOTPSent]=useState(false) //this checks whether OTP is sent or not
+    let [otpVerified,setOTPVerified]=useState(false) //this checks whether OTP is verified or not
+
+    let {name,phone,address,otp}=currInfo
+
+    async function sendData(obj){
+        //Here we will do OTP verification also But that is later
+        try {
+            let k=await axios.post("http://localhost:5000/api/site-visits",obj)
+            console.log(k);
+            toast.success("Request for Site Visit Submitted successfully")
+        } 
+        catch (error) {
+            console.log(error)
+            console.log(error.message)
+            toast.error("Something went wrong")
+        }
+        return 
+    }
 
     const handleChange=(e)=>{
         let {name,value}=e.target
@@ -23,6 +43,11 @@ const Sitevisit = () => {
     const handleSubmit=(e)=>{
         e.preventDefault();
         let validationErrors = {}
+
+        if(!otpVerified){
+            toast.error("Please verify OTP first")
+            return
+        }
 
         let flag = true; //initially we assume there is no error
 
@@ -57,10 +82,69 @@ const Sitevisit = () => {
             //means all info is entered correctly
             //we will send the query to the server so that it gets stored in database and admin can see it later
             //for now since backend is not there we will simply give a toast message
-            toast.success("Request for Site Visit Submitted")
+            let newObj={name,phone,address}
+            sendData(newObj)
+            setInfo({
+                name:"",
+                phone:"",
+                address:"",
+                otp:""
+                })
+            setOTPSent(false)
+            setOTPVerified(false)
         }
         else{
             toast.error("Submission failed! Check your inputs and try again.")
+        }
+    }
+
+    const checkMobile=async (e)=>{
+        e.preventDefault()
+        let validationErrors = {}
+        let flag=true
+        let regexPhone = /^(\+91[-\s]?)?[0]?(91)?[6-9]\d{9}$/;
+        if (phone.trim() == "") {
+            validationErrors.phone = "*This field is mandatory"
+            flag = false
+        }
+        else if (!regexPhone.test(phone)) {
+            validationErrors.phone = "This should be a valid mobile number"
+            flag = false
+        }
+
+        if(flag==false){
+            //means not a valid phone number
+            toast.error("Please enter a valid mobile number")
+        }
+        else{
+            //valid phone number is entered
+            let newObj={phone}
+            let k=await axios.post("http://localhost:5000/api/otp/send",newObj)
+            console.log(k)
+            if(k.data.success){
+                setOTPSent(true)
+                toast.success("OTP sent successfully")
+            }
+            else{
+                toast.error(`${k.data.message}`)
+            }
+        }
+    }
+
+    const verifyOTP=async ()=>{
+        let obj = { phone, otp }
+
+        try {
+            let res = await axios.post("http://localhost:5000/api/otp/verify", obj)
+
+            if(res.data.success){
+                toast.success("Phone number verified successfully.Please proceed")
+                setOTPVerified(true)
+            }
+        } 
+        catch(err){
+            console.log(err.message)
+            toast.error("Invalid OTP")
         }
     }
 
@@ -71,7 +155,7 @@ const Sitevisit = () => {
             <h1> {t("customerPortal.siteVisit.title")}</h1>
             <p>{t("customerPortal.siteVisit.description")}</p>
 
-            <form action="" onSubmit={handleSubmit} method="post">
+            <form  onSubmit={handleSubmit} >
                 <label >{t("customerPortal.requestService.name")} </label>
                 <input type="text" name='name' value={name} onChange={handleChange}/>
                 <div>
@@ -80,10 +164,24 @@ const Sitevisit = () => {
                 
 
                 <label >{t("customerPortal.requestService.phone")} ( {t("customerPortal.requestService.otpNote")} )</label>
-                <input type="text" name='phone' value={phone} onChange={handleChange}/> 
+                <input type="text" name='phone' value={phone} onChange={handleChange} disabled={otpSent}/> 
                 <div>
                     {error.phone && <span>{error.phone}</span>}
-                </div><br /><br />
+                </div>
+                <button type="button" onClick={checkMobile} disabled={otpSent}>Get OTP</button>
+                <br /><br />
+
+                {
+                    otpSent && (
+                        <>
+                            <label htmlFor="">OTP </label>
+                            <input type="text" name='otp' value={otp} onChange={handleChange} disabled={otpVerified}/> 
+                            <p>OTP will remain valid for 5 minutes</p>
+                            <button type="button" onClick={verifyOTP} disabled={otpVerified}> Verify OTP</button>
+                            <br /><br />
+                        </>
+                    )
+                }
 
                 <label htmlFor="">{t("customerPortal.siteVisit.address")}</label>
                 <textarea name="address" id="" value={address} onChange={handleChange}></textarea>

@@ -13,6 +13,12 @@ import Requestservice from '../customer_portal/Requestservice'
 import Sitevisit from '../customer_portal/Sitevisit'
 import Installedproject from '../customer_portal/Installedproject'
 import Visitingcard from '../customer_portal/Visitingcard'
+import AdminDashboard from '../pages/AdminDashboard'
+import RequestedServices from '../admin_dashboard/RequestedServices'
+import RequestedSiteVisits from '../admin_dashboard/RequestedSiteVisits'
+import CustomerQueries from '../admin_dashboard/CustomerQueries'
+import Projects from '../admin_dashboard/Projects'
+import ProtectedRoute from './ProtectedRoute'
 
 
 const Approute = () => {
@@ -65,7 +71,28 @@ const Approute = () => {
                 {
                     path: '*',
                     element: <Notfound />
+                },
+                {
+                    path:'/admindashboard',
+                    element:<ProtectedRoute><AdminDashboard></AdminDashboard></ProtectedRoute>
+                },
+                {
+                    path:'/admindashboard/requestservices',
+                    element:<ProtectedRoute>:<RequestedServices></RequestedServices></ProtectedRoute>
+                },
+                {
+                    path:'/admindashboard/sitevisits',
+                    element:<ProtectedRoute><RequestedSiteVisits></RequestedSiteVisits> </ProtectedRoute>
+                },
+                {
+                    path:'/admindashboard/customerqueries',
+                    element:<ProtectedRoute><CustomerQueries></CustomerQueries></ProtectedRoute>
+                },
+                {
+                    path:'/admindashboard/projects',
+                    element:<ProtectedRoute><Projects></Projects></ProtectedRoute>
                 }
+                
             ]
         }
     ])
@@ -78,6 +105,30 @@ const Approute = () => {
 }
 
 export default Approute
+
+/*
+{
+                    path:'/admindashboard',
+                    element:<AdminDashboard></AdminDashboard>},
+                {
+                    path:'/admindashboard/requestservices',
+                    element:<RequestedServices></RequestedServices>
+                },
+                {
+                    path:'/admindashboard/sitevisits',
+                    element:<RequestedSiteVisits></RequestedSiteVisits>
+                },
+                {
+                    path:'/admindashboard/customerqueries',
+                    element:<CustomerQueries></CustomerQueries>
+                },
+                {
+                    path:'/admindashboard/projects',
+                    element:<Projects></Projects>
+                }
+*/
+
+
 /*
 Define URLs
 

@@ -37,13 +37,15 @@ const Contact = () => {
                 
             </div>
 
+            {/*
             <div>
-                <h1>{t("customerPortal.payment.title")}</h1> {/* Do later */}
+                <h1>{t("customerPortal.payment.title")}</h1> 
             </div>
 
             <div>
-                <h1>{t("customerPortal.receipt.title")}</h1> {/* Do later */}
+                <h1>{t("customerPortal.receipt.title")}</h1> 
             </div>
+            */}
 
 
         </>

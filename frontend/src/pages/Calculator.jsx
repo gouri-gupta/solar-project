@@ -4,6 +4,7 @@ import { HiQuestionMarkCircle } from "react-icons/hi"
 import { useState } from 'react';
 import {calculateSavings} from '../utils/calculatorLogic.js'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const Calculator = () => {
     const { t, i18n } = useTranslation();
@@ -37,6 +38,15 @@ const Calculator = () => {
         setData({ ...currData, [name]: value })
     }
 
+    async function sendData(obj){
+        try {
+            let k=await axios.post("http://localhost:5000/api/calculator",obj)
+        } 
+        catch (error) {
+            console.log(error.message)
+        }
+    }
+
     let calculate=(e)=>{
         e.preventDefault()
         if(monthlyBill==""){
@@ -48,6 +58,12 @@ const Calculator = () => {
             setOuput(obj)
             setResult(true)
             setInput(true)
+            //save to database {bill,propertyType,roofAreaProvided,estimatedKW}
+            let newObj={propertyType,bill:Number(monthlyBill),roofAreaProvided:false,estimatedKW:obj.requiredKW};
+            if(Number(roofArea)>0){
+                newObj["roofAreaProvided"]=true;
+            }
+            sendData(newObj)
         }
     }
 
