@@ -135,55 +135,70 @@ const Requestservice = () => {
     }
 
     return (
-        <div>
-            <h1> {t("customerPortal.requestService.title")}</h1>
-            <p>{t("customerPortal.requestService.description")}</p> 
+        <div className='border border-[#E0E0E0] m-8 flex flex-col bg-gray-50 gap-8 rounded-xl shadow-md'>
 
-           <form  onSubmit={handleSubmit}>
-                <label >{t("customerPortal.requestService.name")} </label>
-                <input type="text" name='name' value={name} onChange={handleChange}/>
-                <div>
-                    {error.name && <span>{error.name}</span>}
-                </div> <br /><br />
-                
+            <section className=' flex flex-col items-center text-center'> {/**border border-blue-800 */}
+                <h1 className="text-[#003366] text-2xl md:text-3xl lg:text-4xl font-bold italic p-2"> {t("customerPortal.requestService.title")}</h1>
+                <p className="text-[#333333] text-xl italic p-2">{t("customerPortal.requestService.description")}</p>    
+            </section> 
 
-                <label >{t("customerPortal.requestService.phone")} ( {t("customerPortal.requestService.otpNote")} )</label>
-                <input type="text" name='phone' value={phone} onChange={handleChange} disabled={otpSent}/> 
-                <div>
-                    {error.phone && <span>{error.phone}</span>}
-                </div>
-                <button type="button" onClick={checkMobile} disabled={otpSent}>Get OTP</button>
-                <br /><br />
-                
-                
-                {
-                    otpSent && (
-                        <>
-                            <label htmlFor="">OTP </label>
-                            <input type="text" name='otp' value={otp} onChange={handleChange} disabled={otpVerified}/> 
-                            <p>OTP will remain valid for 5 minutes</p>
-                            <button type="button" onClick={verifyOTP} disabled={otpVerified}> Verify OTP</button>
-                            <br /><br />
-                        </>
-                    )
-                }
+           <section className=''> {/**border border-gray-800 */}
+                <form  onSubmit={handleSubmit} className=' flex flex-col max-w-xl mx-auto gap-5 m-2'> {/**border border-blue-800 */}
+                    <div className=' flex flex-col gap-2'> {/**border border-green-800 */}
+                        <label className='text-[#333333] text-xl font-sans font-bold'>{t("customerPortal.requestService.name")} </label>
+                        <input type="text" name='name' value={name} onChange={handleChange} className="w-full border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]"/>
+                        <div>
+                            {error.name && <span className='text-red-700'>{error.name}</span>}
+                        </div> 
+                    </div>
+                    
 
-                <label htmlFor="">{t("customerPortal.requestService.serviceType")} </label>
-                <select name="serviceType" id="" onChange={handleChange}>
-                    <option value="rooftop">{t("customerPortal.requestService.services.rooftop")}</option>
-                    <option value="panels">{t("customerPortal.requestService.services.panels")}</option>
-                    <option value="inverter">{t("customerPortal.requestService.services.inverter")}</option>
-                </select><br /><br />
+                    <div className=' flex flex-col gap-2'> {/**border border-green-800 */}
+                        <label className='text-[#333333] text-xl font-sans font-bold'>{t("customerPortal.requestService.phone")} ( {t("customerPortal.requestService.otpNote")} )</label>
+                        <input type="text" name='phone' value={phone} onChange={handleChange} disabled={otpSent} className="w-full border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]"/> 
+                        <div>
+                            {error.phone && <span className='text-red-700'>{error.phone}</span>}
+                        </div>
+                        <button type="button" onClick={checkMobile} disabled={otpSent} className="w-1/5 px-3 py-2 bg-[#FDB813] rounded-lg text-[#003366] font-bold shadow-md hover:bg-[#003366] hover:text-white border border-transparent hover:border-white transition">Get OTP</button>
+                    </div>
+                    
+                    
+                    
+                    {
+                        otpSent && (
+                            <div className=' flex flex-col gap-2'> {/**border border-green-800 */}
+                                <label htmlFor="" className='text-[#333333] text-xl font-sans font-bold'>OTP </label>
+                                <input type="text" name='otp' value={otp} onChange={handleChange} disabled={otpVerified} className="w-full border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]"/> 
+                                <p className='text-[#333333] font-sans italic font-normal'>OTP will remain valid for 5 minutes</p>
+                                <button type="button" onClick={verifyOTP} disabled={otpVerified} className="w-1/5 px-3 py-2 bg-[#FDB813] rounded-lg text-[#003366] font-bold shadow-md hover:bg-[#003366] hover:text-white border border-transparent hover:border-white transition"> Verify OTP</button>
+                                
+                            </div>
+                        )
+                    }
 
-                <label htmlFor="">{t("customerPortal.requestService.propertyType")} </label>
-                <select name="propertyType" id="" onChange={handleChange}>
-                    <option value="residential">{t("customerPortal.requestService.property.residential")}</option>
-                    <option value="commercial">{t("customerPortal.requestService.property.commercial")}</option>
-                </select><br /><br />
+                    <div className=' flex flex-col gap-2'> {/**border border-green-800 */}
+                        <label htmlFor="" className='text-[#333333] text-xl font-sans font-bold'>{t("customerPortal.requestService.serviceType")} </label>
+                        <select name="serviceType" id="" onChange={handleChange} className="w-full border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]">
+                            <option value="rooftop">{t("customerPortal.requestService.services.rooftop")}</option>
+                            <option value="panels">{t("customerPortal.requestService.services.panels")}</option>
+                            <option value="inverter">{t("customerPortal.requestService.services.inverter")}</option>
+                        </select>
+                    </div>
+
+                    <div className=' flex flex-col gap-2'> {/**border border-green-800 */}
+                        <label htmlFor="" className='text-[#333333] text-xl font-sans font-bold'>{t("customerPortal.requestService.propertyType")} </label>
+                        <select name="propertyType" id="" onChange={handleChange} className="w-full border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]">
+                            <option value="residential">{t("customerPortal.requestService.property.residential")}</option>
+                            <option value="commercial">{t("customerPortal.requestService.property.commercial")}</option>
+                        </select>
+                    </div>
 
 
-                <button type="submit">{t("customerPortal.requestService.submit")}</button>
-           </form>
+                    <div className=' text-center'> {/**border border-green-800 */}
+                        <button type="submit" className="px-3 py-2 bg-[#FDB813] rounded-lg text-[#003366] font-bold shadow-md hover:bg-[#003366] hover:text-white border border-transparent hover:border-white transition">{t("customerPortal.requestService.submit")}</button>
+                    </div>
+                </form>
+           </section>
         </div>
     )
 }

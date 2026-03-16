@@ -76,16 +76,30 @@ const Login = () => {
 
 
     return (
-        <div>
-            <h1>{t("loginPage.title")}</h1>
-            <p>{t("loginPage.subtitle")}</p>
-            <form action="" onSubmit={handleSubmit} method="post">
-                <label htmlFor="">{t("loginPage.inputs.email.label")}</label>
-                <input type="text" placeholder={t("loginPage.inputs.email.placeholder")} name='email' value={email} onChange={handleChange}/> <br /> <br />
-                <label htmlFor="">{t("loginPage.inputs.password.label")}</label>
-                <input type="password" placeholder={t("loginPage.inputs.password.placeholder")} name='password' value={password} onChange={handleChange}/> <br /> <br />
-                <button type='submit'>{t("loginPage.button.login")}</button>
-            </form>
+        <div className='m-8 flex flex-col gap-8'>
+
+            <section className=' flex flex-col items-center text-center'>
+                <h1 className="text-[#003366] text-2xl md:text-3xl lg:text-4xl font-bold  p-2">{t("loginPage.title")}</h1>
+                <p className="text-[#333333] text-xl italic p-2">{t("loginPage.subtitle")}</p>
+            </section>
+            
+            <section>
+                <form action="" onSubmit={handleSubmit} method="post" className=' flex flex-col max-w-xl mx-auto gap-5 m-2'>
+                    <div className=' flex flex-col gap-2'>
+                        <label htmlFor="" className='text-[#333333] text-xl font-sans font-bold'>{t("loginPage.inputs.email.label")}</label>
+                        <input type="text" placeholder={t("loginPage.inputs.email.placeholder")} name='email' value={email} onChange={handleChange} className="w-full border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]"/> 
+                    </div> 
+
+                    <div className=' flex flex-col gap-2'>
+                        <label htmlFor="" className='text-[#333333] text-xl font-sans font-bold'>{t("loginPage.inputs.password.label")}</label>
+                        <input type="password" placeholder={t("loginPage.inputs.password.placeholder")} name='password' value={password} onChange={handleChange} className="w-full border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]"/> 
+                    </div>
+
+                    <div className=' text-center'>
+                        <button type='submit' className="px-3 py-2 bg-[#FDB813] rounded-lg text-[#003366] font-bold shadow-md hover:bg-[#003366] hover:text-white border border-transparent hover:border-white transition">{t("loginPage.button.login")}</button>
+                    </div>
+                </form>
+            </section>
 
             {
                 errorMsg && (

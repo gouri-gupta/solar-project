@@ -9,8 +9,7 @@ const MainLayout = () => {
     return (
         <>  
           <Navbar></Navbar>
-          <button onClick={() => i18n.changeLanguage("hi")}>Hindi</button>
-          <button onClick={() => i18n.changeLanguage("en")}>English</button>
+
           <Outlet></Outlet>
            
         </>

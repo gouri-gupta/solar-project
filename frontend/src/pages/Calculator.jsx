@@ -69,49 +69,82 @@ const Calculator = () => {
 
 
     return (
-        <>
-            <h1>{t("calculatorPage.headline")}</h1>
-            <form action="" method="post">
-                <label>{t("calculatorPage.inputs.monthlyBill.label")}</label> <HiQuestionMarkCircle />
-                <input type="text" name="monthlyBill" value={monthlyBill} onChange={handleChange}/> <br /> <br />
+        <main className=' flex flex-col gap-4 bg-gray-100'> {/**border border-black */}
+             
+             {/**Title of page */}
+            <div className=' flex flex-col content-center items-center'> {/**border border-blue-800 */}
+                <h1 className='text-[#003366] text-4xl md:text-5xl lg:text-6xl font-bold italic p-2'>{t("calculator")}</h1>
+                <h1 className='text-[#004C99] text-lg md:text-xl lg:text-2xl italic font-semibold p-2'>{t("calculatorPage.headline")}</h1>
+            </div>
 
-                <label>{t("calculatorPage.inputs.propertyType.label")}</label> <HiQuestionMarkCircle />
-                <select name="propertyType" id="" onChange={handleChange}>
-                    <option value="residential">{t("calculatorPage.inputs.propertyType.options.residential")}</option>
-                    <option value="commercial">{t("calculatorPage.inputs.propertyType.options.commercial")}</option>
-                </select> <br /> <br />
+            {/**Soalr calculator inputs */}
+            <div className='border border-[#E0E0E0] bg-white rounded-xl shadow-md max-w-xl mx-auto '>
+                <form action="" method="post" className=' flex flex-col gap-5 m-2'> {/**border border-orange-700 */}
+                    {/**monthly bill */}
+                    <section className=''> {/**border border-green-800 */}
+                        <div className=''>
+                            <label className='text-[#333333] text-xl font-sans font-bold'>{t("calculatorPage.inputs.monthlyBill.label")} </label> 
+                            <span className='inline-block align-baseline text-[#333333]' title={t("calculatorPage.inputs.monthlyBill.helper")}><HiQuestionMarkCircle /></span>
+                        </div>
+                        <input type="text" name="monthlyBill" value={monthlyBill} onChange={handleChange} className="w-full m-1 border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]"/> 
+                    </section>
 
-                <label>{t("calculatorPage.inputs.roofArea.label")}</label> <HiQuestionMarkCircle />
-                <input type="text" name='roofArea' value={roofArea} onChange={handleChange}/> <br /> <br />
+                    {/**property type */}
+                    <section className=''> {/**border border-green-800 */}
+                        <div>
+                            <label className='text-[#333333] text-xl font-sans font-bold'>{t("calculatorPage.inputs.propertyType.label")} </label> 
+                            <span className='inline-block align-baseline text-[#333333]' title={t("calculatorPage.inputs.propertyType.helper")}><HiQuestionMarkCircle /></span>
+                        </div>
+                        <select name="propertyType" id="" onChange={handleChange} className="w-full m-1 border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]">
+                            <option value="residential" className=''>{t("calculatorPage.inputs.propertyType.options.residential")}</option>
+                            <option value="commercial">{t("calculatorPage.inputs.propertyType.options.commercial")}</option>
+                        </select>
+                    </section>
 
-                <button onClick={calculate}>{t("calculatorPage.button.calculate")}</button>
+                    {/**Roof area */}
+                    <section className=''> {/**border border-green-800 */}
+                        <div>
+                            <label className='text-[#333333] text-xl font-sans font-bold'>{t("calculatorPage.inputs.roofArea.label")} </label>
+                            <span className='inline-block align-baseline text-[#333333]' title={t("calculatorPage.inputs.roofArea.helper")}><HiQuestionMarkCircle /></span>
+                        </div>
+                        <input type="text" name='roofArea' value={roofArea} onChange={handleChange} className="w-full m-1 border border-gray-400 rounded-md px-2 py-1 focus:border-[#FDB813] focus:ring-[#FDB813]"/>
+                    </section>
+
+                    {/**Calculate button */}
+                    <section className=' flex justify-center'> {/**border border-green-800 */}
+                        <button onClick={calculate} className="px-3 py-2 bg-[#FDB813] rounded-lg text-[#003366] font-bold shadow-md hover:bg-[#003366] hover:text-white border border-transparent hover:border-white transition">{t("calculatorPage.button.calculate")}</button>
+                    </section>
                 
-            </form>
+                </form>
+            </div>
 
+            {/**Invalid Inputs */}
             {
                 isInputCorrect==false && (
-                    <div>
-                        <h1>Please enter all the valid information</h1>
+                    <div className='flex justify-center m-2'>
+                        <h1 className='text-red-600 text-xl font-sans font-bold'>Please enter all the valid information</h1>
                     </div>
                 )
             }
 
-
+            {/**Soalr calculator output */}
             {
                 result && isInputCorrect && (
-                    <div>
-                        <h1>{t("calculatorPage.results.capacity")}: {requiredKW} kW</h1>
-                        <h1>{t("calculatorPage.results.savings")} : {Number(monthlySavings).toLocaleString("en-IN")}</h1> 
-                        <h1>{t("calculatorPage.results.cost")} : {Number(minCost).toLocaleString("en-IN")} - {Number(maxCost).toLocaleString("en-IN")}</h1>
-                        <h1>{t("calculatorPage.results.payback")} : {minPayback} - {maxPayback}</h1>
-                        <p>{t("calculatorPage.disclaimer")}</p>
+                    <div className=' bg-yellow-50 border border-yellow-200 m-2 flex flex-col justify-center items-center gap-4 p-6 rounded-xl shadow-md max-w-xl mx-auto'>
+                        <h1 className='text-[#333333] text-xl font-sans font-bold'>{t("calculatorPage.results.capacity")}: {requiredKW} kW</h1>
+                        <h1 className='text-[#333333] text-xl font-sans font-bold'>{t("calculatorPage.results.savings")} : {Number(monthlySavings).toLocaleString("en-IN")}</h1> 
+                        <h1 className='text-[#333333] text-xl font-sans font-bold'>{t("calculatorPage.results.cost")} : {Number(minCost).toLocaleString("en-IN")} - {Number(maxCost).toLocaleString("en-IN")}</h1>
+                        <h1 className='text-[#333333] text-xl font-sans font-bold'>{t("calculatorPage.results.payback")} : {minPayback} - {maxPayback}</h1>
+                        <p className='text-[#333333] text-base font-sans italic'>{t("calculatorPage.disclaimer")}</p>
 
-                        <h1>{t("calculatorPage.cta.line")} {t("calculatorPage.cta.call")}</h1>
-                        <button onClick={()=>navigate("/contact/sitevisit")}>{t("calculatorPage.cta.requestVisit")}</button>
+                        <div className='flex flex-col items-center gap-4 m-2'>
+                            <h1 className='text-2xl font-bold font-sans text-[#004C99] italic'>{t("calculatorPage.cta.line")} {t("calculatorPage.cta.call")}</h1>
+                            <button onClick={()=>navigate("/contact/sitevisit")} className="px-3 py-2 bg-[#FDB813] rounded-lg text-[#003366] font-bold shadow-md hover:bg-[#003366] hover:text-white border border-transparent hover:border-white transition">{t("calculatorPage.cta.requestVisit")}</button>
+                        </div>
                     </div>
                 )
             }
-        </>
+        </main>
     )
 }
 

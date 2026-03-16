@@ -127,6 +127,10 @@
   "faq": "FAQ",
   "faqPage": {
     "title": "Frequently Asked Questions",
+    "contact": {
+    "line1": "Still have questions?",
+    "line2": "Call us at 9422918612"
+    },
     "items": [
       {
         "question": "What are the benefits of rooftop solar?",

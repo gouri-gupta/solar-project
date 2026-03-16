@@ -105,6 +105,130 @@
 
     },
     {
+        "customerName":"DINESH AJABRAV KATOLKAR",
+        "phone":"8888492174",
+        "email":"dineshkotolkar1981@gmail.com",
+        "address":"H NO.871 MADHAV NAGAR TEOSA AMRAVATI Teosa, District: Amravati, State: MAHARASHTRA, PIN Code: 444903",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":3.5,
+        "installationDate":"2025-10-27",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1773240763/image7_voo5jb.png"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"GUPTA MANISH CHANDULALJI",
+        "phone":"9689908892",
+        "email":"manish.gupta238@gmail.com",
+        "address":"H, NO. 1147 W, NO. 51 GALLI NO. 7 KALYAN NAGAR AMRAVATI, District: Amravati, State: MAHARASHTRA, PIN Code: 444606",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":4.6,
+        "installationDate":"2025-10-9",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1773240813/img17_fhrahr.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"ANKESH SURESH KHURKHURIYA",
+        "phone":"9890453904",
+        "email":"ankeshkhurkhuria@gmail.com",
+        "address":"BAJARANG TEKADI MASANGANJ AMRAVATI AMRAVATI Amrava ti (M Corp.), District: Amravati, State: MAHARASHTRA, PIN Code: 444601",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":3.5,
+        "installationDate":"2025-10-4",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1773240866/img17_x86cfl.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"YOGESH SURESH KHURKHURIYA",
+        "phone":"9272663400",
+        "email":"khurkhuriyayogesh409@gmail.com",
+        "address":"BAJARANG TEKADI MASANGANJ AMRAVATI AMRAVATI Amrava ti (M Corp.), District: Amravati, State: MAHARASHTRA, PIN Code: 444601",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":3.5,
+        "installationDate":"2025-10-4",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1773240906/img17_hk5yq9.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+    },
+    {
+        "customerName":"SHRI SUBHASH KISANLAL HARWANI",
+        "phone":"9420518791",
+        "email":"harwanisubhash9@gmail.com",
+        "address":"2 BAPU COLONY AMRAVATI AMRAVATI, District: Amravati, State: MAHARASHTRA, PIN Code: 444603",
+        "serviceType":"rooftop",
+        "propertyType":"residential",
+        "installedCapacityKW":4.6,
+        "installationDate":"2025-09-26",
+        "images":["https://res.cloudinary.com/dojvxywkk/image/upload/v1773240948/img17_neuyed.jpg"],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
+        "customerName":"",
+        "phone":"",
+        "email":"",
+        "address":"",
+        "serviceType":"",
+        "propertyType":"",
+        "installedCapacityKW":0,
+        "installationDate":,
+        "images":[],
+        "payment":{
+            "paymentMode":"full",
+            "totalCost":0,
+            "amountPaid":0,
+            "paymentStatus":"pending"
+        }
+
+    },
+    {
         "customerName":"",
         "phone":"",
         "email":"",

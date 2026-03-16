@@ -1,4 +1,5 @@
 import OTPModel from '../models/OTP.js'
+import axios from 'axios'
 
 
 export const sendOTP=async (request,response)=>{
@@ -37,17 +38,49 @@ export const sendOTP=async (request,response)=>{
 
       //Generate OTP
       const otp=Math.floor(100000 + Math.random() * 900000) //this creates a number
+      //console.log("OTP ",otp)
 
       //Store OTP in database
       let newObj={phone:phone,otp:String(otp)}
       const createOTP=await OTPModel.create(newObj)
 
-      //Send OTP in SMS (Fast2SMS)  LATER 
-      // FIRST TEST OTP LOCALLY  
+      //Send SMS via Fast2SMS
+      /*
+      You must send:
+        route
+        message
+        language
+        numbers
+        Example:
+        {
+        route: "q",  //Quick transactional SMS (used for OTP)
+        message: "Your OTP is 123456",
+        language: "english",
+        numbers: "9876543210"
+        }
+      */
+
+
+        let message=`Your OTP for Sannidhi Sun Solutions verification is ${otp}. It is valid for 5 minutes. Do not share this OTP with anyone.`
+        let numbers = phone.slice(-10)
+        let objSMS={route:"q",message,language:"english",numbers}
+        
+        let send2FastSMS=await axios.post("https://www.fast2sms.com/dev/bulkV2",objSMS,{
+          headers:{
+            authorization:process.env.FAST2SMS_API_KEY
+          }
+        })
+
+        //console.log(send2FastSMS.data)
+
+        if(!send2FastSMS.data.return){
+          throw new Error("SMS sending failed")
+        }
+
+      // Return success message
       response.status(201).send({
             "message":"OTP sent successfully",
-            success:true,
-            result:createOTP
+            success:true
         })
 
         //Response Should Not Return OTP in Production
@@ -60,7 +93,7 @@ export const sendOTP=async (request,response)=>{
     Never expose OTP in production responses.*/
     } 
     catch (error) {
-      console.log(error.message)
+      console.log(error.response?.data || error.message)
       response.status(500).send({
             "message":"Server error",
             success:false,
@@ -148,7 +181,7 @@ export const verifyOTP=async (request,response)=>{
         return response.status(200).send({
           "message":"OTP verified successfully",
           "success":true,
-          result:findotp  //In production you should not return OTP data.but for now its fine during testing
+          result:{phone}  //In production you should not return OTP data.but for now its fine during testing
         })
       }
       else{
