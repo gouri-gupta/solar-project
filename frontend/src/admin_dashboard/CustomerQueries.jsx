@@ -1,6 +1,7 @@
 import {useEffect,useState} from 'react'
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { GrStatusGoodSmall } from "react-icons/gr";
 
 const CustomerQueries = () => {
   let [queries,setQueries]=useState([])
@@ -93,45 +94,72 @@ const CustomerQueries = () => {
   }
 
   return (
-    <div>
-      <h1>This displays all the customer queries</h1>
+    <main className=' m-8 flex flex-col'>
+      <section className=' flex flex-row justify-between'>
+        <div>
+          <h1 className="text-[#003366] text-xl font-bold p-2">This displays all the customer queries</h1>
+        </div>
 
-      {/*Filter by status */}
-      <h3>Filter by status</h3>
-      <select name="status" id="" onChange={handleStatusChange}>
-        <option value="All">All</option>
-        <option value="pending">Pending</option>
-        <option value="in-progress">In Progress</option>
-        <option value="resolved">Resolved</option>
-      </select>
+        <div>
+          {/*Filter by status */}
+          <h3 className='text-[#333333] text-lg font-normal '>Filter by status</h3>
+          <select name="status" id="" onChange={handleStatusChange}>
+            <option value="All">All</option>
+            <option value="pending">Pending</option>
+            <option value="in-progress">In Progress</option>
+            <option value="resolved">Resolved</option>
+          </select>
+        </div>
+      </section>
 
-      {
-        filteredQueries.map((item)=>{
-          return(
-            <div key={item._id}>
-              <h1>Customer name : {item.name}</h1>
-              <h1>Phone : {item.phone}</h1>
-              <h1>Query : {item.queryType}</h1>
-              <h3>Description : {item.description}</h3>
-              <h3>Status : {item.status}</h3>
-              <label htmlFor="">Status</label>
-              <select name="statusState" value={editingID === item._id? statusState : item.status} id="" disabled={editingID !== item._id} onChange={handleStatusStateChange}>
-                <option value="pending">Pending</option>
-                <option value="in-progress">In Progress</option>
-                <option value="resolved">Resolved</option>
-              </select>
-              <br />
-      
+      <div className='overflow-x-auto'>
+        <div className="min-w-[900px]">
+          {/**Header */}
+            <section className=' grid  grid-cols-6 font-semibold p-2 bg-gray-100'> {/**border border-purple-800 */}
+                <h1>Name</h1>
+                <h1>Phone</h1>
+                <h1>Query</h1>
+                <h1>Description</h1>
+                <h1>Status</h1>
+                <h1></h1>
+            </section>     
+
+            {/**Rows */}
+            <section>
               {
-                editingID==item._id ? <button onClick={()=>saveChanges(item)}>Save</button> : <button onClick={()=>handleEditQuery(item)}>Edit</button>
+                filteredQueries.map((item)=>{
+                  return(
+                    <div key={item._id} className=' grid  grid-cols-6 gap-2 items-center border-b p-2 even:bg-gray-50 '>
+                      <h1>{item.name}</h1>
+                      <h1>{item.phone}</h1>
+                      <h1>{item.queryType}</h1>
+                      <h3   className="max-w-[250px]  line-clamp-2" title={item.description}>{item.description}</h3>
+                      
+                      <div className="flex items-center gap-2">
+                        {
+                            item.status=="pending" ? <span className='text-yellow-500 inline-block'><GrStatusGoodSmall></GrStatusGoodSmall></span> : item.status=="resolved" ? <span className='text-green-600 inline-block'><GrStatusGoodSmall></GrStatusGoodSmall></span> : <span className='text-orange-600 inline-block'><GrStatusGoodSmall></GrStatusGoodSmall></span>
+                        }
+                        <select name="statusState" value={editingID === item._id? statusState : item.status} id="" disabled={editingID !== item._id} onChange={handleStatusStateChange}>
+                          <option value="pending">Pending</option>
+                          <option value="in-progress">In Progress</option>
+                          <option value="resolved">Resolved</option>
+                        </select>
+                      </div>
+                      
+              
+                      {
+                        editingID==item._id ? <button onClick={()=>saveChanges(item)} className="w-fit px-4 py-1 items-center bg-green-200 rounded-xl text-green-800 font-bold shadow-md hover:bg-green-300 hover:text-white border border-transparent hover:border-white transition">Save</button> : <button onClick={()=>handleEditQuery(item)} className="w-fit px-4 py-1 items-center bg-gray-200 rounded-xl text-gray-800 font-bold shadow-md hover:bg-gray-300 hover:text-white border border-transparent hover:border-white transition">Edit</button>
+                      }
+                    
+                    </div>
+                  )
+                })
               }
-              <hr />
-            </div>
-          )
-        })
-      }
+            </section>
+        </div>
+      </div>
 
-    </div>
+    </main>
   )
 }
 
