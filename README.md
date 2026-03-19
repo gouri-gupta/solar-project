@@ -1,59 +1,74 @@
-# 🌞 Solar Business Web Application (MERN)
+# 🌞 Solar Installation & Customer Management Platform (MERN)
 
-A real-world MERN stack web application built for a local solar energy business to digitize customer interactions, showcase services, and manage solar-related queries efficiently.
+A production-grade full-stack web application built for a **real solar installation business** to digitize operations, manage customer workflows, and streamline service handling.
 
-This project is currently **work in progress** and is being actively developed.
+> ⚡ This is a **live client project**, not a demo.
 
 ---
 
-## 🚀 Features Implemented
+## 🚀 Key Features
 
 ### 👤 Customer Side
-- Multi-page React application with routing
-- Bilingual support (English & Hindi) using **react-i18next**
-- Solar Savings Calculator with real-world estimation logic
-- Customer Portal:
-  - Request a service
-  - Request free site visit
-  - Query about installed projects
-  - Download visiting card (PDF)
+- Multi-page responsive React application
+- 🌐 Bilingual support (English & Hindi) using `react-i18next`
+- ⚡ Solar Savings Calculator with real-world estimation logic
+- Service workflows:
+  - Request solar service
+  - Book free site visit
+  - Raise customer queries
 - Form validation with proper error handling
-
-### 🔐 Admin Side (In Progress)
-- Admin login using Context API
-- Admin authentication state management
-- Planned admin dashboard for:
-  - Viewing customer queries
-  - Managing wall of trust (project images & testimonials)
 
 ---
 
-## 🧮 Solar Calculator Logic
-- Estimates required solar capacity (kW)
-- Calculates approximate monthly savings
-- Shows system cost range (residential/commercial)
-- Computes payback period (in years)
+### 🔐 Admin Dashboard
+- Secure admin authentication using **JWT + bcrypt**
+- Role-based protected routes
+- Manage:
+  - Customer service requests
+  - Customer queries
+  - Project records (add/edit/update)
+- Advanced features:
+  - Filtering & search functionality
+  - Status management (pending/resolved/etc.)
+  - Real-time UI updates
 
-> All values are indicative and based on standard Indian solar benchmarks.
+---
+
+## 🧮 Solar Calculator
+- Calculates required solar capacity (kW)
+- Estimates monthly savings
+- Provides system cost range
+- Computes payback period
+
+> Designed using real-world Indian solar benchmarks.
+
+---
+
+## ⚙️ Backend & Architecture
+- RESTful APIs built using **Node.js + Express**
+- Modular MVC architecture (controllers, routes, middleware)
+- MongoDB integration with optimized queries
+- Secure authentication using JWT
+- Media handling via **Cloudinary CDN**
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend**
+### Frontend
 - React.js
+- Tailwind CSS
 - React Router
 - Context API
 - react-i18next
-- Vite
-- JavaScript (ES6+)
 
-**Backend (Planned)**
+### Backend
 - Node.js
 - Express.js
 - MongoDB
 - JWT Authentication
-- OTP verification (SMS)
+- bcrypt
+- Cloudinary
 
 ---
 
@@ -62,45 +77,32 @@ This project is currently **work in progress** and is being actively developed.
 ```text
 solar-project/
 ├── frontend/
-│   ├── public/
-│   ├── src/
-│   └── vite.config.js
-│
-├── backend/        (to be added)
-└── README.md
-```
+├── backend/
+├── README.md
 
+## 🎯 Purpose of the Project 
+This platform was developed for a real solar business to:
+-Digitize customer interaction workflows
+-Reduce manual inquiry handling
+-Improve operational visibility
+-Provide transparent solar cost estimates
+-Support regional users via bilingual interface
 
-## 🎯 Purpose of the Project
+ ---
 
-This is not a demo project.
+ ## 📌 Status 
+ 🟡 **Completed (Pre-Deployment Stage)** 
+ Upcoming:
+-OTP-based verification (DLT integration)
+-Google Analytics integration
+-Production deployment
+ 
+ --- 
 
-It is being built for a **real registered solar business** to:
-- Improve customer engagement
-- Reduce manual inquiry handling
-- Provide transparent solar cost estimates
-- Support bilingual users for wider reach
+## 👩‍💻 Developer 
+**Gouri Gupta** 
+Full Stack Developer (MERN) 
+DSA-focused | Building real-world products --- 
 
----
-
-## 📌 Status
-🟡 **In Progress**
-
-- Backend APIs
-- OTP verification
-- Admin dashboard
-- Database design
-- Styling & UI polish
-
----
-
-## 👩‍💻 Developer
-
-**Gouri Gupta**  
-Full Stack Developer (MERN)  
-DSA-focused | Building real-world products  
-
----
-
-## 📬 Feedback
+## 📬 Feedback 
 Feedback and suggestions are welcome.
