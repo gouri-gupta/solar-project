@@ -218,8 +218,17 @@ const Projects = () => {
                 headers: { Authorization: `Bearer ${token}` }
               }
             )
+            //console.log(res)
+            setProjects(prev => {
+              const updated = [...prev, res.data.result];  //updates UI adds new project to the exisitng list of projects on UI so that new projects also appears on the top
 
-            setProjects(prev => [...prev, res.data]) // update UI
+              // sort by latest installationDate first
+              updated.sort(
+                (a, b) => new Date(b.installationDate) - new Date(a.installationDate) //sorts the project according to installation date
+              );
+
+              return updated;
+            });
             setShowAddModal(false)
 
             toast.success("Project added successfully")
