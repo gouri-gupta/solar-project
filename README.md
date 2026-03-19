@@ -80,6 +80,8 @@ solar-project/
 ├── backend/
 ├── README.md
 
+---
+
 ## 🎯 Purpose of the Project 
 This platform was developed for a real solar business to:
 -Digitize customer interaction workflows
