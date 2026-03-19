@@ -84,27 +84,29 @@ solar-project/
 
 ## 🎯 Purpose of the Project 
 This platform was developed for a real solar business to:
--Digitize customer interaction workflows
--Reduce manual inquiry handling
--Improve operational visibility
--Provide transparent solar cost estimates
--Support regional users via bilingual interface
+- Digitize customer interaction workflows
+- Reduce manual inquiry handling
+- Improve operational visibility
+- Provide transparent solar cost estimates
+- Support regional users via bilingual interface
 
  ---
 
  ## 📌 Status 
  🟡 **Completed (Pre-Deployment Stage)** 
  Upcoming:
--OTP-based verification (DLT integration)
--Google Analytics integration
--Production deployment
+- OTP-based verification (DLT integration)
+- Google Analytics integration
+- Production deployment
  
  --- 
 
 ## 👩‍💻 Developer 
 **Gouri Gupta** 
 Full Stack Developer (MERN) 
-DSA-focused | Building real-world products --- 
+DSA-focused | Building real-world products 
+
+--- 
 
 ## 📬 Feedback 
 Feedback and suggestions are welcome.
