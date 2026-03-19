@@ -103,7 +103,7 @@ This platform was developed for a real solar business to:
 
 ## 👩‍💻 Developer 
 **Gouri Gupta** 
-Full Stack Developer (MERN) 
+Full Stack Developer (MERN)\ 
 DSA-focused | Building real-world products 
 
 --- 
