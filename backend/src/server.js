@@ -25,7 +25,7 @@ app.use(express.json());
 
 //CORS
 app.use(cors({
-  origin: "http://localhost:5173", // for now; later you can restrict to your frontend domain
+  origin: ["http://localhost:5173","https://solar-project-alpha.vercel.app/"], // for now; later you can restrict to your frontend domain
   credentials: false
 }));
 
@@ -43,7 +43,7 @@ app.use("/api/calculator",calculatorRoute)
 app.use("/api/request-services",requestServiceRoute)
 app.use("/api/site-visits",siteVisitRoute)
 app.use("/api/otp",otpRoute)
-//https://solar-backend-4eea.onrender.com
+
 //app.use path + router path
 
 
