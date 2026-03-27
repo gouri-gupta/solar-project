@@ -160,6 +160,7 @@
   },
   "contact": "Customer Portal",
   "customerPortal": {
+    "callLine": "Call us for any queries or assistance",
     "title": "Customer Portal",
     "subtitle": "All your solar services at one place",
     "requestService": {

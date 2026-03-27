@@ -15,6 +15,16 @@ const Contact = () => {
                 <p className="text-[#004C99] text-lg md:text-xl lg:text-2xl italic font-semibold p-2">{t("customerPortal.subtitle")}</p>
             </section>
 
+            {/* Call support line */}
+            <div className="text-center bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4 shadow-sm">
+                <p className="text-[#003366] text-base md:text-lg font-medium">
+                    📞 {t("customerPortal.callLine")}{" "}
+                    <a href="tel:9422918612" className="underline font-bold hover:text-blue-700">
+                        9422918612
+                    </a>
+                </p>
+            </div>
+
 
             {/*Tiles for various features of customer portal*/}
             <section className=' grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'> {/**border border-orange-800 */}
