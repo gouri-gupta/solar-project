@@ -25,7 +25,7 @@ app.use(express.json());
 
 //CORS
 app.use(cors({
-  origin: ["http://localhost:5173","https://solar-project-alpha.vercel.app/"], // for now; later you can restrict to your frontend domain
+  origin: ["http://localhost:5173","https://solar-project-alpha.vercel.app"], // for now; later you can restrict to your frontend domain
   credentials: false
 }));
 
