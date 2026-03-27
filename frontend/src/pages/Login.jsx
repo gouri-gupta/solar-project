@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { AdminContext } from '../context/AdminAuthContext';
 import axios from 'axios'
 
-
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Login = () => {
     const { t, i18n } = useTranslation();
 
@@ -24,7 +24,7 @@ const Login = () => {
 
     async function sendData(obj){
         try {
-            const k=await axios.post("http://localhost:5000/api/admin/login",obj)
+            const k=await axios.post(`${BASE_URL}/api/admin/login`,obj)
             let {data}=k;
             if(data.success){
                 //logged in successfully

@@ -5,6 +5,7 @@ import { IoSearch } from "react-icons/io5";
 import { MdAddBox } from "react-icons/md";
 import { GrStatusGoodSmall } from "react-icons/gr";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Projects = () => {
 
   let [projects,setProjects]=useState([])
@@ -44,7 +45,7 @@ const Projects = () => {
     //this function fetches all the projects completed by the admin
     try {
         const t=localStorage.getItem("token");
-        let k=await axios.get("http://localhost:5000/api/projects",{
+        let k=await axios.get(`${BASE_URL}/api/projects`,{
           headers:{
             Authorization:`Bearer ${t}`
           }
@@ -168,7 +169,7 @@ const Projects = () => {
         }
 
         await axios.patch(
-          `http://localhost:5000/api/projects/${editingProject._id}`,
+          `${BASE_URL}/api/projects/${editingProject._id}`,
           updatedProject,
           {
             headers: { Authorization: `Bearer ${token}` }
@@ -212,7 +213,7 @@ const Projects = () => {
             }
 
             const res = await axios.post(
-              "http://localhost:5000/api/projects",
+              `${BASE_URL}/api/projects`,
               newProject,
               {
                 headers: { Authorization: `Bearer ${token}` }

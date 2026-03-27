@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast';
 import axios from 'axios'
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Requestservice = () => {
     const { t, i18n } = useTranslation();
 
@@ -22,7 +24,7 @@ const Requestservice = () => {
     async function sendData(obj){
         //Here we will do OTP verification also But that is later
         try {
-            let k=await axios.post("http://localhost:5000/api/request-services",obj)
+            let k=await axios.post(`${BASE_URL}/api/request-services`,obj)
             console.log(k);
             toast.success("Query Submitted successfully")
         } 

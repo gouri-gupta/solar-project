@@ -3,6 +3,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { GrStatusGoodSmall } from "react-icons/gr";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const RequestedSiteVisits = () => {
 
   let [sites,setSites]=useState([])
@@ -17,7 +18,7 @@ const RequestedSiteVisits = () => {
   async function getData(){
     try {
       const t=localStorage.getItem("token");
-        let k=await axios.get("http://localhost:5000/api/site-visits",{
+        let k=await axios.get(`${BASE_URL}/api/site-visits`,{
           headers:{
             Authorization:`Bearer ${t}`
           }
@@ -57,7 +58,7 @@ const RequestedSiteVisits = () => {
       }
       //send updated query to backend
       const t=localStorage.getItem("token");
-        let k=await axios.patch(`http://localhost:5000/api/site-visits/${item._id}`,obj,{
+        let k=await axios.patch(`${BASE_URL}/api/site-visits/${item._id}`,obj,{
           headers:{
             Authorization:`Bearer ${t}`
           }

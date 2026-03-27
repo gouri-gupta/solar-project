@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast';
 import axios from 'axios'
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Installedproject = () => {
 
     const { t, i18n } = useTranslation();
@@ -26,7 +28,7 @@ const Installedproject = () => {
     async function sendData(obj){
         try {
             let obj_to_send={name:obj.name,phone:obj.phone,queryType:obj.queryType,description:obj.message}
-            let responseData=await axios.post("http://localhost:5000/api/customer-queries",obj_to_send)
+            let responseData=await axios.post(`${BASE_URL}/api/customer-queries`,obj_to_send)
             console.log(responseData)
             if(responseData.status==201){
                 toast.success("Query submitted successfully")

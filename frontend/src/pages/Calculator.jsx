@@ -6,6 +6,8 @@ import {calculateSavings} from '../utils/calculatorLogic.js'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Calculator = () => {
     const { t, i18n } = useTranslation();
 
@@ -40,7 +42,7 @@ const Calculator = () => {
 
     async function sendData(obj){
         try {
-            let k=await axios.post("http://localhost:5000/api/calculator",obj)
+            let k=await axios.post(`${BASE_URL}/api/calculator`,obj)
         } 
         catch (error) {
             console.log(error.message)

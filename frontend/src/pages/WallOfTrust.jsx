@@ -3,18 +3,24 @@ import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const WallOfTrust = () => {
     const { t } = useTranslation();
     const [images, setImages] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const getData = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/projects/public")
+            const response = await axios.get(`${BASE_URL}/api/projects/public`)
             setImages(response.data)
         }
         catch (error) {
             console.log(error.message)
             toast.error("Failed to load images")
+        }
+        finally{
+            setLoading(false)
         }
     }
 
@@ -41,16 +47,21 @@ const WallOfTrust = () => {
             </section>
 
 
+
             {/* Projects Grid */}
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                {images.map((item) => (
+                {
+                    loading ? (
+                        <div className="col-span-full flex justify-center items-center h-[40vh]">
+                            <p className="text-xl font-semibold text-[#003366] animate-pulse">
+                                Loading images...
+                            </p>
+                        </div>
+                    ) :
+                    images.map((item) => (
                     
-                    <div
-                        key={item._id}
-                        className="bg-white rounded-xl shadow-md overflow-hidden group p-1 border-2 border-yellow-200"
-                    >
-
+                    <div key={item._id} className="bg-white rounded-xl shadow-md overflow-hidden group p-1 border-2 border-yellow-200">
                         {/* Project Image */}
                         <img
                             src={item.images[0]}
@@ -60,7 +71,10 @@ const WallOfTrust = () => {
 
                     </div>
 
-                ))}
+                ))
+                }
+
+                
 
             </section>
 

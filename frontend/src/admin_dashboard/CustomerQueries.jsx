@@ -3,6 +3,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import { GrStatusGoodSmall } from "react-icons/gr";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const CustomerQueries = () => {
   let [queries,setQueries]=useState([])
     let [editingID,setEditingID]=useState(null)  //editingId = "65fd9d3a..." MEANS only that row is editable
@@ -16,7 +17,7 @@ const CustomerQueries = () => {
   async function getData(){
     try {
       const t=localStorage.getItem("token");
-      const k=await axios.get("http://localhost:5000/api/customer-queries",{
+      const k=await axios.get(`${BASE_URL}/api/customer-queries`,{
           headers:{
             Authorization:`Bearer ${t}`
           }
@@ -58,7 +59,7 @@ const CustomerQueries = () => {
       }
       //send updated query to backend
       const t=localStorage.getItem("token");
-        let k=await axios.patch(`http://localhost:5000/api/customer-queries/${item._id}`,obj,{
+        let k=await axios.patch(`${BASE_URL}/api/customer-queries/${item._id}`,obj,{
           headers:{
             Authorization:`Bearer ${t}`
           }

@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast';
 import axios from 'axios'
 
+
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Sitevisit = () => {
     const { t, i18n } = useTranslation();
 
@@ -21,7 +24,7 @@ const Sitevisit = () => {
     async function sendData(obj){
         //Here we will do OTP verification also But that is later
         try {
-            let k=await axios.post("http://localhost:5000/api/site-visits",obj)
+            let k=await axios.post(`${BASE_URL}/api/site-visits`,obj)
             console.log(k);
             toast.success("Request for Site Visit Submitted successfully")
         } 
