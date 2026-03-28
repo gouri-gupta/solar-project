@@ -25,11 +25,8 @@ app.use(express.json());
 
 //CORS
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://solar-project-alpha.vercel.app"
-  ],
-  credentials: false
+  origin: ["https://sannidhisunsolution.in", "https://www.sannidhisunsolution.in"],
+  credentials: true
 }));
 
 
