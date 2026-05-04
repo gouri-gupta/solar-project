@@ -5,6 +5,13 @@ A production-grade full-stack web application built for a **real solar installat
 > ⚡ This is a **live client project**, not a demo.
 
 ---
+## 🚀 Live Demo
+
+👉 Try it here:  
+🌐 https://www.sannidhisunsolution.in
+🌐 https://solar-project-alpha.vercel.app/
+
+---
 
 ## 🚀 Key Features
 
